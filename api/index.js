@@ -52,6 +52,16 @@ app.get('/api/sarees', async (req, res) => {
         id: 106, name: 'Embroidered Georgette', category: 'Georgette', price: 5999,
         description: 'Stunning georgette with heavy sequin and thread embroidery for evening events.',
         image_url: 'https://images.unsplash.com/photo-1592762696942-8a0d0c4e34c4?w=600&q=80'
+      },
+      {
+        id: 107, name: 'Linen Handloom Saree', category: 'Linen', price: 2799,
+        description: 'Breathable linen handloom saree with natural texture and minimalist block-print design.',
+        image_url: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80'
+      },
+      {
+        id: 108, name: 'Patola Pure Silk Saree', category: 'Silk', price: 18499,
+        description: 'Rare double Patola silk saree from Patan, Gujarat. Features vivid double ikat weave.',
+        image_url: 'https://images.unsplash.com/photo-1606218810523-8b531b69aef0?w=600&q=80'
       }
     ];
 

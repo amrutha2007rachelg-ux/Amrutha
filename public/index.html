@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amrutha Saree Collection | Premium Indian Sarees</title>
+  <meta name="description" content="Discover the finest handpicked sarees at Amrutha Saree Collection – silk, Banarasi, Kanjivaram and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── NAVIGATION ────────────────────────────────────── -->
+  <nav id="navbar">
+    <div class="nav-brand">
+      <span class="brand-icon">🪷</span>
+      <span class="brand-name">Amrutha Saree Collection</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button id="cartBtn" class="cart-btn" aria-label="Open cart">
+        🛍️ Cart <span id="cartBadge" class="cart-badge">0</span>
+      </button>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+  </nav>
+
+  <!-- ── HERO ──────────────────────────────────────────── -->
+  <section id="home" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-tag">✦ Elegance in Every Thread ✦</p>
+      <h1>Amrutha Saree Collection</h1>
+      <p class="hero-sub">Handpicked sarees from the finest looms of India — silk, Banarasi, Kanjivaram and beyond.</p>
+      <a href="#shop" class="btn btn-primary">Explore Collection</a>
+    </div>
+    <div class="hero-scroll-indicator">
+      <span></span>
+    </div>
+  </section>
+
+  <!-- ── FEATURES BAR ──────────────────────────────────── -->
+  <div class="features-bar">
+    <div class="feature-item"><span>🚚</span> Free Shipping over ₹3000</div>
+    <div class="feature-item"><span>🔄</span> Easy 7-Day Returns</div>
+    <div class="feature-item"><span>💎</span> 100% Authentic Sarees</div>
+    <div class="feature-item"><span>🤝</span> Weavers Supported</div>
+  </div>
+
+  <!-- ── SHOP / PRODUCTS ───────────────────────────────── -->
+  <section id="shop" class="shop-section">
+    <div class="section-header">
+      <p class="section-tag">Our Collection</p>
+      <h2>Discover Your Perfect Saree</h2>
+      <p class="section-sub">Each saree is a work of art, woven with tradition and love.</p>
+    </div>
+
+    <!-- Category Filter -->
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="Silk">Silk</button>
+      <button class="filter-btn" data-filter="Banarasi">Banarasi</button>
+      <button class="filter-btn" data-filter="Cotton">Cotton</button>
+      <button class="filter-btn" data-filter="Georgette">Georgette</button>
+      <button class="filter-btn" data-filter="Ikkat">Ikkat</button>
+      <button class="filter-btn" data-filter="Chiffon">Chiffon</button>
+    </div>
+
+    <div id="loadingSpinner" class="loading-spinner">
+      <div class="spinner"></div>
+      <p>Loading our collection...</p>
+    </div>
+
+    <div id="productGrid" class="product-grid"></div>
+  </section>
+
+  <!-- ── ABOUT ─────────────────────────────────────────── -->
+  <section id="about" class="about-section">
+    <div class="about-content">
+      <div class="about-text">
+        <p class="section-tag">Our Story</p>
+        <h2>Woven with Tradition, Worn with Pride</h2>
+        <p>Amrutha Saree Collection was founded with a single dream — to bring the finest handcrafted sarees from India's legendary weaving communities directly to your doorstep.</p>
+        <p>We partner with artisans from Kanchipuram, Varanasi, Pochampally, and Chanderi to preserve centuries-old weaving techniques while empowering local craftsmen.</p>
+        <div class="about-stats">
+          <div class="stat"><span class="stat-num">500+</span><span class="stat-label">Saree Varieties</span></div>
+          <div class="stat"><span class="stat-num">10K+</span><span class="stat-label">Happy Customers</span></div>
+          <div class="stat"><span class="stat-num">50+</span><span class="stat-label">Master Weavers</span></div>
+        </div>
+      </div>
+      <div class="about-image">
+        <div class="about-img-wrap">
+          <img src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=500&q=80" alt="Beautiful saree craftsmanship" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ───────────────────────────────────────── -->
+  <section id="contact" class="contact-section">
+    <div class="section-header">
+      <p class="section-tag">Get in Touch</p>
+      <h2>We'd Love to Hear From You</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item">
+          <span class="contact-icon">📍</span>
+          <div>
+            <strong>Our Store</strong>
+            <p>12, Silk Market Road, Anna Nagar, Chennai – 600 040</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">📞</span>
+          <div>
+            <strong>Phone</strong>
+            <p>+91 98400 12345</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">✉️</span>
+          <div>
+            <strong>Email</strong>
+            <p>hello@amruthasarees.in</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">🕐</span>
+          <div>
+            <strong>Store Hours</strong>
+            <p>Mon–Sat: 9 AM – 8 PM</p>
+          </div>
+        </div>
+      </div>
+      <form id="contactForm" class="contact-form">
+        <div class="form-group">
+          <label for="contactName">Your Name</label>
+          <input type="text" id="contactName" placeholder="Priya Sharma" required />
+        </div>
+        <div class="form-group">
+          <label for="contactEmail">Email Address</label>
+          <input type="email" id="contactEmail" placeholder="priya@example.com" required />
+        </div>
+        <div class="form-group">
+          <label for="contactMessage">Message</label>
+          <textarea id="contactMessage" rows="4" placeholder="Ask about a saree, custom orders..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%">Send Message 📩</button>
+        <p id="formSuccess" class="form-success" style="display:none">✅ Thanks! We'll reply within 24 hours.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="brand-icon">🪷</span>
+        <span class="brand-name">Amrutha Saree Collection</span>
+        <p>Bringing India's weaving heritage to the modern wardrobe.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#shop">Shop</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="#shop">Kanjivaram Silk</a></li>
+          <li><a href="#shop">Banarasi</a></li>
+          <li><a href="#shop">Chanderi</a></li>
+          <li><a href="#shop">Ikkat</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Follow Us</h4>
+        <div class="social-links">
+          <a href="#" class="social-link">📘 Facebook</a>
+          <a href="#" class="social-link">📸 Instagram</a>
+          <a href="#" class="social-link">🐦 Twitter</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Amrutha Saree Collection. All rights reserved. | Made with ❤️ in India</p>
+    </div>
+  </footer>
+
+  <!-- ── CART SIDEBAR ───────────────────────────────────── -->
+  <div id="cartOverlay" class="cart-overlay"></div>
+  <aside id="cartSidebar" class="cart-sidebar">
+    <div class="cart-header">
+      <h3>🛍️ Your Cart</h3>
+      <button id="closeCart" class="close-btn">✕</button>
+    </div>
+    <div id="cartItems" class="cart-items">
+      <div class="empty-cart">
+        <p>🛒</p>
+        <p>Your cart is empty</p>
+        <a href="#shop" class="btn btn-outline" id="shopNowBtn">Shop Now</a>
+      </div>
+    </div>
+    <div id="cartFooter" class="cart-footer" style="display:none">
+      <div class="cart-total">
+        <span>Total</span>
+        <span id="cartTotal">₹0</span>
+      </div>
+      <button class="btn btn-primary" style="width:100%" id="checkoutBtn">Proceed to Checkout</button>
+      <button class="btn btn-outline" style="width:100%; margin-top:8px" id="clearCartBtn">Clear Cart</button>
+    </div>
+  </aside>
+
+  <!-- ── PRODUCT MODAL ──────────────────────────────────── -->
+  <div id="productModal" class="modal-overlay" style="display:none">
+    <div class="modal-box">
+      <button id="closeModal" class="close-btn">✕</button>
+      <div class="modal-content">
+        <img id="modalImg" src="" alt="" />
+        <div class="modal-info">
+          <span id="modalCategory" class="product-badge"></span>
+          <h2 id="modalName"></h2>
+          <p id="modalDesc"></p>
+          <p id="modalPrice" class="modal-price"></p>
+          <button id="modalAddCart" class="btn btn-primary">Add to Cart 🛍️</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TOAST NOTIFICATION ─────────────────────────────── -->
+  <div id="toast" class="toast">✅ Added to cart!</div>
+
+  <script src="app.js"></script>
+</body>
+</html>

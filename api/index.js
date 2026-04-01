@@ -80,7 +80,8 @@ app.get('/api/sarees/:id', async (req, res) => {
   }
 });
 
-// ─── CART API ───────────────────────────────────────────────────
+// ─── CART API (with local memory fallback) ───────────────────────
+let mockCart = []; // Local memory storage for when DB is down
 
 app.get('/api/cart', async (req, res) => {
   try {
@@ -93,14 +94,15 @@ app.get('/api/cart', async (req, res) => {
     `);
     res.json({ success: true, data: rows });
   } catch (err) {
-    console.error('API Error (/api/cart GET):', err);
-    res.status(500).json({ success: false, message: 'Cart retrieval failed.', error: err.message });
+    console.warn('Cart retrieval failed, serving mock cart:', err.message);
+    res.json({ success: true, data: mockCart, note: 'fallback_active' });
   }
 });
 
 app.post('/api/cart', async (req, res) => {
   const { saree_id, quantity = 1 } = req.body;
   if (!saree_id) return res.status(400).json({ success: false, message: 'saree_id is required' });
+  
   try {
     const [existing] = await pool.query('SELECT * FROM cart WHERE saree_id = ?', [saree_id]);
     if (existing.length > 0) {
@@ -110,7 +112,40 @@ app.post('/api/cart', async (req, res) => {
     await pool.query('INSERT INTO cart (saree_id, quantity) VALUES (?, ?)', [saree_id, quantity]);
     res.json({ success: true, message: 'Added to cart' });
   } catch (err) {
-    res.status(500).json({ success: false, message: err.message });
+    console.warn('Cart submission failed, using mock cart:', err.message);
+    
+    // Fallback Mock Logic
+    const existingIndex = mockCart.findIndex(item => item.saree_id === saree_id);
+    if (existingIndex > 0) {
+        mockCart[existingIndex].quantity += quantity;
+    } else {
+        // We need the saree details for the UI
+        // In fallback mode, we assume the saree exists in the fallback list
+        const fallbackSarees = [
+            { id: 101, name: 'Royal Kanjivaram Silk', category: 'Silk', price: 12999, image_url: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=600&q=80' },
+            { id: 102, name: 'Banarasi Brocade', category: 'Banarasi', price: 9499, image_url: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=600&q=80' },
+            { id: 103, name: 'Chanderi Cotton Silk', category: 'Cotton', price: 3499, image_url: 'https://images.unsplash.com/photo-1617627143233-4df547e5e1c9?w=600&q=80' },
+            { id: 104, name: 'Mysore Crepe Silk', category: 'Silk', price: 7299, image_url: 'https://images.unsplash.com/photo-1585944285353-5e3f03c1f97b?w=600&q=80' },
+            { id: 105, name: 'Ikkat Pochampally', category: 'Ikkat', price: 4799, image_url: 'https://images.unsplash.com/photo-1614701655600-9c544fdca5a0?w=600&q=80' },
+            { id: 106, name: 'Embroidered Georgette', category: 'Georgette', price: 5999, image_url: 'https://images.unsplash.com/photo-1592762696942-8a0d0c4e34c4?w=600&q=80' },
+            { id: 107, name: 'Linen Handloom Saree', category: 'Linen', price: 2799, image_url: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80' },
+            { id: 108, name: 'Patola Pure Silk Saree', category: 'Silk', price: 18499, image_url: 'https://images.unsplash.com/photo-1606218810523-8b531b69aef0?w=600&q=80' }
+        ];
+        
+        const saree = fallbackSarees.find(s => s.id === saree_id);
+        if (saree) {
+            mockCart.push({
+                cart_id: Date.now(),
+                saree_id: saree.id,
+                quantity: quantity,
+                name: saree.name,
+                price: saree.price,
+                image_url: saree.image_url,
+                category: saree.category
+            });
+        }
+    }
+    res.json({ success: true, message: 'Added to cart (Fallback)' });
   }
 });
 

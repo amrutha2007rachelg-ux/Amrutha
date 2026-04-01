@@ -8,9 +8,11 @@ const dbUrl = process.env.DATABASE_URL;
 let pool;
 
 if (dbUrl) {
+  console.log('Using DATABASE_URL for MySQL connection.');
   pool = mysql.createPool(dbUrl);
 } else {
   // Fallback to local config if no URL is provided
+  console.log('No DATABASE_URL found. Falling back to local configuration.');
   pool = mysql.createPool({
     host: process.env.DB_HOST || 'localhost',
     user: process.env.DB_USER || 'root',

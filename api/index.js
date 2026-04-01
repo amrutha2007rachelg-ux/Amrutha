@@ -19,7 +19,8 @@ app.get('/api/sarees', async (req, res) => {
     const [rows] = await pool.query('SELECT * FROM sarees WHERE in_stock = TRUE ORDER BY id ASC');
     res.json({ success: true, data: rows });
   } catch (err) {
-    res.status(500).json({ success: false, message: err.message });
+    console.error('API Error (/api/sarees):', err);
+    res.status(500).json({ success: false, message: 'Database query failed. Check server logs.', error: err.message });
   }
 });
 
@@ -47,7 +48,8 @@ app.get('/api/cart', async (req, res) => {
     `);
     res.json({ success: true, data: rows });
   } catch (err) {
-    res.status(500).json({ success: false, message: err.message });
+    console.error('API Error (/api/cart GET):', err);
+    res.status(500).json({ success: false, message: 'Cart retrieval failed.', error: err.message });
   }
 });
 

@@ -131,7 +131,7 @@ async function seedDatabase() {
 
   for (const saree of sarees) {
     await connection.query(
-      'INSERT INTO amrutha_sarees.sarees (name, description, price, image_url, category) VALUES (?, ?, ?, ?, ?)',
+      'INSERT INTO sarees (name, description, price, image_url, category) VALUES (?, ?, ?, ?, ?)',
       [saree.name, saree.description, saree.price, saree.image_url, saree.category]
     );
   }
